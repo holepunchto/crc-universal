@@ -1,4 +1,4 @@
-node_modules
-sandbox
-coverage
+node_modules/
+build/
+coverage/
 package-lock.json

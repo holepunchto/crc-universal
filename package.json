@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/holepunchto/crc-universal#readme",
   "dependencies": {
-    "crc-native": "^1.0.0"
+    "crc-native": "^1.0.1"
   },
   "devDependencies": {
     "brittle": "^2.3.1",

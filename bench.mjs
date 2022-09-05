@@ -1,32 +1,40 @@
-import bench from 'nanobench'
+import test from 'brittle'
 
-const buffer = Buffer.alloc(24, 'a')
-const iterations = 1000000
+test('crc32', async (t) => {
+  const ops = 10000000
 
-bench('javascript', async (b) => {
-  const { crc32 } = await import('./browser.js')
+  const buf = Buffer.alloc(32, 'a')
+  const expected = 0xcab11777
 
-  b.start()
+  await t.test('native', async (t) => {
+    const { crc32 } = await import('./index.js')
 
-  let c
-  for (let i = 0; i < iterations; i++) {
-    c = crc32(buffer) >>> 0
-  }
+    let result
 
-  b.log(c.toString(16))
-  b.end()
-})
+    const elapsed = await t.execution(() => {
+      for (let i = 0; i < ops; i++) {
+        result = crc32(buf)
+      }
+    })
 
-bench('native', async (b) => {
-  const { crc32 } = await import('crc-native')
+    t.alike(result, expected)
 
-  b.start()
+    t.comment(Math.round(ops / elapsed * 1e3) + ' ops/s')
+  })
 
-  let c
-  for (let i = 0; i < iterations; i++) {
-    c = crc32(buffer)
-  }
+  await t.test('javascript', async (t) => {
+    const { crc32 } = await import('./fallback.js')
 
-  b.log(c.toString(16))
-  b.end()
+    let result
+
+    const elapsed = await t.execution(() => {
+      for (let i = 0; i < ops; i++) {
+        result = crc32(buf)
+      }
+    })
+
+    t.alike(result, expected)
+
+    t.comment(Math.round(ops / elapsed * 1e3) + ' ops/s')
+  })
 })

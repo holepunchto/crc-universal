@@ -1,6 +1,6 @@
 {
   "name": "crc-universal",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Universal wrapper for libcrc with a JavaScript fallback",
   "main": "index.js",
   "files": [

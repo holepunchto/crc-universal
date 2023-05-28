@@ -23,4 +23,4 @@ Compute the CRC32 of the given buffer.
 
 ## License
 
-ISC
+Apache 2.0

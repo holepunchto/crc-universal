@@ -19,7 +19,7 @@ test('crc32', async (t) => {
 
     t.alike(result, expected)
 
-    t.comment(Math.round(ops / elapsed * 1e3) + ' ops/s')
+    t.comment(Math.round((ops / elapsed) * 1e3) + ' ops/s')
   })
 
   await t.test('javascript', async (t) => {
@@ -35,6 +35,6 @@ test('crc32', async (t) => {
 
     t.alike(result, expected)
 
-    t.comment(Math.round(ops / elapsed * 1e3) + ' ops/s')
+    t.comment(Math.round((ops / elapsed) * 1e3) + ' ops/s')
   })
 })

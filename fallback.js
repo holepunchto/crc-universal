@@ -23,28 +23,29 @@
 
 const lookup = require('./lookup')
 
-exports.crc32 = function crc32 (buffer) {
+exports.crc32 = function crc32(buffer) {
   let crc = ~0
   let i = 0
   let length = buffer.byteLength
 
   while (length >= 16) {
-    crc = lookup[15][buffer[i++] ^ (crc & 0xff)] ^
-          lookup[14][buffer[i++] ^ ((crc >>> 8) & 0xff)] ^
-          lookup[13][buffer[i++] ^ ((crc >>> 16) & 0xff)] ^
-          lookup[12][buffer[i++] ^ (crc >>> 24)] ^
-          lookup[11][buffer[i++]] ^
-          lookup[10][buffer[i++]] ^
-          lookup[9][buffer[i++]] ^
-          lookup[8][buffer[i++]] ^
-          lookup[7][buffer[i++]] ^
-          lookup[6][buffer[i++]] ^
-          lookup[5][buffer[i++]] ^
-          lookup[4][buffer[i++]] ^
-          lookup[3][buffer[i++]] ^
-          lookup[2][buffer[i++]] ^
-          lookup[1][buffer[i++]] ^
-          lookup[0][buffer[i++]]
+    crc =
+      lookup[15][buffer[i++] ^ (crc & 0xff)] ^
+      lookup[14][buffer[i++] ^ ((crc >>> 8) & 0xff)] ^
+      lookup[13][buffer[i++] ^ ((crc >>> 16) & 0xff)] ^
+      lookup[12][buffer[i++] ^ (crc >>> 24)] ^
+      lookup[11][buffer[i++]] ^
+      lookup[10][buffer[i++]] ^
+      lookup[9][buffer[i++]] ^
+      lookup[8][buffer[i++]] ^
+      lookup[7][buffer[i++]] ^
+      lookup[6][buffer[i++]] ^
+      lookup[5][buffer[i++]] ^
+      lookup[4][buffer[i++]] ^
+      lookup[3][buffer[i++]] ^
+      lookup[2][buffer[i++]] ^
+      lookup[1][buffer[i++]] ^
+      lookup[0][buffer[i++]]
 
     length -= 16
   }

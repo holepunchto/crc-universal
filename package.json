@@ -22,8 +22,8 @@
     "type": "git",
     "url": "git+https://github.com/holepunchto/crc-universal.git"
   },
-  "author": "Kasper Isager Dalsgarð <kasper@funktionel.co>",
-  "license": "ISC",
+  "author": "Holepunch",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/holepunchto/crc-universal/issues"
   },

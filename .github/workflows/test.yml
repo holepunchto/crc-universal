@@ -18,7 +18,6 @@ jobs:
   test:
     strategy:
       matrix:
-        runtime: [node, bare]
         include:
           - os: ubuntu-latest
             platform: linux
@@ -38,4 +37,4 @@ jobs:
           node-version: lts/*
       - run: npm install -g bare-runtime
       - run: npm install
-      - run: npm run test:${{ matrix.runtime }}
+      - run: npm test

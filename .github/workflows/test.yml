@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Lint
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@08c6903
+      - uses: actions/setup-node@2028fbc
         with:
           node-version: lts/*
       - run: npm install
@@ -31,8 +31,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     name: Build / ${{ matrix.platform }}-${{ matrix.arch }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@08c6903
+      - uses: actions/setup-node@2028fbc
         with:
           node-version: lts/*
       - run: npm install -g bare-runtime
